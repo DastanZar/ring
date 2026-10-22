@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling>=1.32,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ring"
+version = "0.1.0"
+description = "Local TCP ring collectives with numerical parity and bandwidth accounting"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["numpy>=2,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=9,<10", "ruff>=0.14,<0.15", "mypy>=1.20,<2", "build>=1.4,<2"]
+viz = ["matplotlib>=3.10,<4"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["ring"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

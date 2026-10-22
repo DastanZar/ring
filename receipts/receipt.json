@@ -1,0 +1,42 @@
+{
+  "tensor": "2 MiB fp64, allreduce, loopback TCP, 16MB socket buffers",
+  "measurements": [
+    {
+      "algbw_gbps": 1.475,
+      "busbw_gbps": 1.475,
+      "wire_bytes_per_rank": 2097152.0,
+      "N": 2,
+      "seconds": 0.0114
+    },
+    {
+      "algbw_gbps": 1.479,
+      "busbw_gbps": 1.972,
+      "wire_bytes_per_rank": 2796202.7,
+      "N": 3,
+      "seconds": 0.0113
+    },
+    {
+      "algbw_gbps": 1.339,
+      "busbw_gbps": 2.008,
+      "wire_bytes_per_rank": 3145728.0,
+      "N": 4,
+      "seconds": 0.0125
+    },
+    {
+      "algbw_gbps": 1.194,
+      "busbw_gbps": 1.91,
+      "wire_bytes_per_rank": 3355443.2,
+      "N": 5,
+      "seconds": 0.0141
+    },
+    {
+      "algbw_gbps": 0.567,
+      "busbw_gbps": 0.992,
+      "wire_bytes_per_rank": 3670016.0,
+      "N": 8,
+      "seconds": 0.0296
+    }
+  ],
+  "formula": "busbw = algbw * 2(N-1)/N ; wire bytes/rank = 2(N-1)/N * S",
+  "note": "Single-shot local TCP timings include Python threads, pickle and copies. busbw is formula-normalized throughput, not measured wire bandwidth or evidence of NCCL/GPU scaling. Requested socket buffers may be OS-capped."
+}
